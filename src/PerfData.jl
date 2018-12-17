@@ -32,7 +32,7 @@
 #
 
 
-module RunClang
+module PerfData
 
 cd(@__DIR__)
 using Clang.cindex
@@ -47,10 +47,10 @@ const CLANG_INCLUDES = String[
 ]
 
 #const SRC_DIR = abspath(@__DIR__, "..", "src")
-const OUT_DIR = abspath(@__DIR__, "out")
+const OUT_DIR = abspath(@__DIR__, "..", "out")
 mkpath(OUT_DIR)
 
-headers = [abspath("headers/linux-perf_event.h")]
+headers = [abspath("../headers/linux-perf_event.h")]
 context = wrap_c.init(;
     headers = headers,
     clang_args = String[],
